@@ -14,7 +14,15 @@ main()
     consoleinit();
     printfinit();
     printf("\n");
-    printf("xv6 kernel is booting\n");
+    printf("xv6 kernel is starting\n");
+    printf("                             | |              \n");
+    printf("  _ __   __ _ _ __   ___ _ __| |__   _____  __\n");
+    printf(" | '_ \\ / _` | '_ \\ / _ \\ '__| '_ \\ / _ \\ \\/ /\n");
+    printf(" | |_) | (_| | |_) |  __/ |  | |_) | (_) >  < \n");
+    printf(" | .__/ \\__,_| .__/ \\___|_|  |_.__/ \\___/_/\\_\\\n");
+    printf(" | |         | |                              \n");
+    printf(" |_|         |_|          OSTEP STUDY HOMEWORK\n");
+    printf(" - H0 CREATE BOOT LOGO\n");
     printf("\n");
     kinit();         // physical page allocator
     kvminit();       // create kernel page table
