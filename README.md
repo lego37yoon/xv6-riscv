@@ -2,7 +2,7 @@ xv6 is a re-implementation of Dennis Ritchie's and Ken Thompson's Unix
 Version 6 (v6).  xv6 loosely follows the structure and style of v6,
 but is implemented for a modern RISC-V multiprocessor using ANSI C.
 
-ACKNOWLEDGMENTS
+# ACKNOWLEDGMENTS
 
 xv6 is inspired by John Lions's Commentary on UNIX 6th Edition (Peer
 to Peer Communications; ISBN: 1-57398-013-7; 1st edition (June 14,
@@ -31,16 +31,26 @@ Rafael Ubal, Amane Uehara, Pablo Ventura, Xi Wang, WaheedHafez,
 Keiichi Watanabe, Lucas Wolf, Nicolas Wolovick, wxdao, Grant Wu, x653,
 Jindong Zhang, Icenowy Zheng, ZhUyU1997, and Zou Chang Wei.
 
-ERROR REPORTS
+# ERROR REPORTS
 
 Please send errors and suggestions to Frans Kaashoek and Robert Morris
 (kaashoek,rtm@mit.edu).  The main purpose of xv6 is as a teaching
 operating system for MIT's 6.1810, so we are more interested in
 simplifications and clarifications than new features.
 
-BUILDING AND RUNNING XV6
+# BUILDING AND RUNNING XV6
 
 You will need a RISC-V "newlib" tool chain from
 https://github.com/riscv/riscv-gnu-toolchain, and qemu compiled for
 riscv64-softmmu.  Once they are installed, and in your shell
 search path, you can run "make qemu".
+
+# ADDITIONAL NOTES FROM LEARNER
+
+At Ubuntu, some dependencies requires to install before start or test codes from OSTEP:
+
+- QEMU (by installing opensbi, as [the article](https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/qemu-riscv/) describes)
+- gawk
+- expect
+
+If you are using test tools from ostep-projects, please remove and modify some commands in `*-xv6-*` series and `tester` directories to run correctly. For example, use `qemu` instead of `qemu-nox`, and remove a line contains `xv6.img` at `pre` file under `tests` folder.

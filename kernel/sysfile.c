@@ -16,6 +16,12 @@
 #include "file.h"
 #include "fcntl.h"
 
+// use atomic variables instead of spinlock;
+// more simple way to keep value atomic without acquire and release explicitly in code.
+// use static option because readcount contains execution count of read(), does not belongs to files or devices
+// use uint64 for more range to express number, ease errors due to overflow
+_Atomic static uint64 readcount = 0;
+
 // Fetch the nth word-sized system call argument as a file descriptor
 // and return both the descriptor and the corresponding struct file.
 static int
@@ -72,11 +78,23 @@ sys_read(void)
   int n;
   uint64 p;
 
+  // add count to read() execution count even if file descriptor is invalid
+  // because initial h1 problem says this value should be incremented
+  // **every** time any process calls the read() system call.
+  readcount++;
+
   argaddr(1, &p);
   argint(2, &n);
   if(argfd(0, 0, &f) < 0)
     return -1;
+  
   return fileread(f, p, n);
+}
+
+uint64
+sys_getreadcount(void)
+{
+  return readcount;
 }
 
 uint64
