@@ -52,3 +52,5 @@ At Ubuntu, some dependencies requires to install before start or test codes from
 - QEMU (by installing opensbi, as [the article](https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/qemu-riscv/) describes)
 - gawk
 - expect
+
+If you are using test tools from ostep-projects, please remove and modify some commands in `*-xv6-*` series and `tester` directories to run correctly. For example, use `qemu` instead of `qemu-nox`, and remove a line contains `xv6.img` at `pre` file under `tests` folder.

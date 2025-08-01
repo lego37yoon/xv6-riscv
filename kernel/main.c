@@ -24,7 +24,7 @@ main()
     printf(" |_|         |_|          OSTEP STUDY HOMEWORK\n");
     printf(" - H0 CREATE BOOT LOGO [COMPLETED]\n");
     printf(" - H0-OPTIONAL CREATE SYSTEM CALL FOR SHUTDOWN [NOW WORKING]\n");
-    printf(" - H1 CREATE GETREADCOUNT SYSTEM CALL [NOW WORKING]\n");
+    printf(" - H1 CREATE GETREADCOUNT SYSTEM CALL [REVIEW REQUESTED]\n");
     printf("\n");
     kinit();         // physical page allocator
     kvminit();       // create kernel page table
