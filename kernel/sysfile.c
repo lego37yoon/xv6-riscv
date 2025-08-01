@@ -20,7 +20,7 @@
 // more simple way to keep value atomic without acquire and release explicitly in code.
 // use static option because readcount contains execution count of read(), does not belongs to files or devices
 // use uint64 for more range to express number, ease errors due to overflow
-uint64 _Atomic static readcount = 0;
+_Atomic static uint64 readcount = 0;
 
 // Fetch the nth word-sized system call argument as a file descriptor
 // and return both the descriptor and the corresponding struct file.
